@@ -234,6 +234,11 @@ class Github:
             nextParams['per_page'] = self.per_page
         while nextUrl is not None:
             headers, data = self.__get(nextUrl, nextParams, headers)
+            if 'content-type' in headers:
+                if Consts['headerRawJSON'] in headers['content-type'] or \
+                    Consts['headerHtmlJSON'] in headers['content-type']:
+                    content = data
+                    yield content
             data = data if data else []
             nextUrl = None
             if len(data) > 0:
@@ -244,18 +249,12 @@ class Github:
             if 'items' in data:
                 totalCount = data.get('total_count')
                 data = data['items']
-            if 'content-type' in headers:
-                if Consts['headerRawJSON'] in headers['content-type'] or \
-                    Consts['headerHtmlJSON'] in headers['content-type']:
-                    content = data
-                    yield content
-            else:
-                content = [
-                    element
-                    for element in data
-                    if element is not None
-                ]
-                yield from content
+            content = [
+                element
+                for element in data
+                if element is not None
+            ]
+            yield from content
 
 
     def close(self) -> None:
