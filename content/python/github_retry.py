@@ -83,7 +83,6 @@ class GithubRetry(Retry):
 
                     try:
                         if self.isRateLimitError(message):
-                            rate_type = "primary" if self.isPrimaryRateLimitError(message) else "secondary"
 
                             # check early that we are retrying at all
                             retry = super().increment(method, url, response, error, _pool, _stacktrace)

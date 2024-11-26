@@ -33,4 +33,4 @@ All query parameters are optional.
    - `404`: Resource not found
 
 ## Results
-It returns JSON objects with `type` and `items` keys. `items` value is a list of commits. `type` is `array` string.
+It returns a list of JSON objects if no custom header is specified.

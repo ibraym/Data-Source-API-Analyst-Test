@@ -19,9 +19,10 @@ We researched the documentation to gather information about the required endpoin
     1. [Authentication](./content/docs/auth.md)
     2. [Rate Limits](./content/docs/rate-limits.md)
     3. [Pagination](./content/docs/pagination.md)
-    1. [Search Repositories (public)](./content/docs/search_repos.md)
-    2. [Commits](./content/docs/commits.md)
-    2. [Contents](./content/docs/contents.md)
+    4. [Search Repositories (public)](./content/docs/search_repos.md)
+    5. [Commits](./content/docs/commits.md)
+    6. [Contents](./content/docs/contents.md)
+    7. [Troubleshooting Guide](./content/docs/troubleshooting.md)
 
 2. Code:
 we prepared a [Jupyter notebook](./content/jupyter_notebook/) that contains the step by step documentation of each function/class we have developed to handle authentication, pagination, rate limits and error handling. It also include some example of how requesting and extracting data from the API.
